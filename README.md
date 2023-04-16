@@ -78,9 +78,10 @@ python3 ./scripts/runTests.py
 
 ### Tratador de dados
 
-O script foi escrito em em R, e aconselha-se que seja executado a partir da IDE RStudio. Os arquivos do diretório *time/output* serão utilizados no
-cálculo das curvas de regressão e construção dos gráficos, armazenados na pasta *plot/plots*.
+Os scripts foram escritos em em R, e aconselha-se que sejam executados a partir da IDE RStudio. Os arquivos do diretório *time/output* serão utilizados no
+cálculo das curvas de regressão e construção dos gráficos, armazenados na pasta *time/plots*.
 
 ```bash
-# Caminho do arquivo: ./scripts/plot/script/plot_script.R
+# Caminho do gerador de gráficos simples: ./scripts/plot/single_plots/plot_script.R
+# Caminho do gerador de curvas sobrepostas: ./scripts/plot/multiple_plots/plot_script_mult.R
 ```
