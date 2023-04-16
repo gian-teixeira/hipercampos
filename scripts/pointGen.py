@@ -32,7 +32,7 @@ for n in Q:
 
 		# Abertura e escrita das informações no arquivo de saída
 
-		filePath = f"{__outdir}/{j}.txt"
+		filePath = f"{__outdir}/{j}.in"
 		outputFile = open(filePath, "w")
 
 		outputFile.write(f'{n} {Xa} {Xb}\n')

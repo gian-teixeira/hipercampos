@@ -1,5 +1,5 @@
 time/input/*
-!time/input/.gitignore
+!time/input/0.in
 io_i.txt
 io_o.txt
 TP1

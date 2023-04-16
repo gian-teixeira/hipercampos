@@ -1,9 +1,11 @@
 import os
-import subprocess as sys
+import sys
+import subprocess as sub
 
 exec = "./TP1"
+output = sys.argv[1]
 
 inputFiles = os.listdir("./time/input/")
 for file in inputFiles:
 	path = f"./time/input/{file}"
-	sys.run([exec, "-i", path, "-o", "./time/output.txt"])
+	sub.run([exec, "-i", path, "-o", output])
