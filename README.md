@@ -1,3 +1,5 @@
+[comment]: # Caso nenhum interpretador markdown esteja disponível e o leitor ainda queira ler o documento formatado, é possível utilizar a versão em html.
+
 # Hipercampos :triangular_ruler:
 
 Esse programa foi desenvolvido como um trabalho prático da disciplina de Algoritmos e Estruturas de Dados III da Universidade Federal de São João del-Rei (UFSJ). As especificaçoes detalhadas da atividade estão presentes no arquivo *Especificações.pdf*, e a documentação técnica, no arquivo *docs/Hipercampos.pdf*.
