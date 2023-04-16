@@ -2,7 +2,7 @@
 
 // Armazena uma diferença entre duas estruturas de tempo em uma 
 // terceira estrutura e a retorna
-struct timeval time_diff(struct timeval begin, struct timeval end) {
+struct timeval time_diff(struct timeval begin, struct timeval end){
     struct timeval diff;
         diff.tv_sec = end.tv_sec - begin.tv_sec;
         diff.tv_usec = end.tv_usec - begin.tv_usec;
@@ -10,7 +10,7 @@ struct timeval time_diff(struct timeval begin, struct timeval end) {
 }
 
 float get_milliseconds(struct timeval time) {
-    float milliseconds = time.tv_sec * 1e3 + time.tv_usec * 1e-3;
+    float milliseconds = time.tv_sec * 1000 + time.tv_usec * 0.001;
     return milliseconds;
 }
 
@@ -35,7 +35,7 @@ void stop_time_count(TimeSpecs specs) {
     if(specs == NULL) return;
     
     gettimeofday(&specs->dayTimeEnd, NULL);
-    getrusage(RUSAGE_SELF, &specs->resourceTimeBegin);
+    getrusage(RUSAGE_SELF, &specs->resourceTimeEnd);
 
     struct timeval dayTimeDiff = time_diff(specs->dayTimeBegin, specs->dayTimeEnd);
     struct timeval userTimeDiff = time_diff(specs->resourceTimeBegin.ru_utime, specs->resourceTimeEnd.ru_utime);

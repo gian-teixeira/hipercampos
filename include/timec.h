@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <sys/resource.h>
 #include <sys/time.h>
+#include <string.h>
 
 typedef struct TimeSpecs {
     struct timeval systemTime;
