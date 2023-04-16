@@ -1,4 +1,4 @@
-[comment]: # Caso nenhum interpretador markdown esteja disponível e o leitor ainda queira ler o documento formatado, é possível utilizar a versão em html.
+> Caso nenhum interpretador markdown esteja disponível e o leitor ainda queira ler o documento formatado, é possível utilizar a versão em html.
 
 # Hipercampos :triangular_ruler:
 
