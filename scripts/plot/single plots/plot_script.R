@@ -24,26 +24,26 @@ data_frame_name[4] <- "total_day_time"
 data_frame_name[5] <- "total_system_time"
 data_frame_name[6] <- "total_user_time"
 fonte <- "Libre Baskerville"
-Resolucao <- 4000
+Resolucao <- 4200
 line_color <- "black"
 point_color <- "#899499"
-equacao = function(x){(3*x*x) - (3*x)}
-tamanho_fonte <- 20
+equacao = function(x){(x*x) - (x)}
+tamanho_fonte <- 32
 #=============================================================================
 
 #Utiliza o diretório padrão
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
-setwd("../../time/output")
+
 
 #Importa fontes a serem usadas nos gráficos
-font_import(paths="./fonts")
+font_import(paths="/fonts")
 
 #define o tema dos gráficos
 theme_set(theme(panel.grid.major=element_blank(), panel.grid.minor=element_blank(),
                 panel.background=element_blank(), axis.line=element_line(colour="black"),
                 text=element_text(size=tamanho_fonte, family=fonte)))
 
-
+setwd("../../../time/output")
 for(i in 1:length(data_frame_name)){
   #Importa o Dataframe a ser usado no gráfico
   in_file_name <- paste(data_frame_name[i], ".csv", sep="")
@@ -53,10 +53,18 @@ for(i in 1:length(data_frame_name)){
   ggplot(dados, aes(V1,V2)) + xlab("Entradas(n)") + ylab("Tempo(ms)") +
     geom_point(color=point_color) + geom_smooth(method="loess", color=line_color, se=FALSE,linewidth=1)
   out_file_name <- paste(data_frame_name[i], ".png", sep="")
-  ggsave(out_file_name, path="./plots", width=Resolucao, height=Resolucao, units="px")
+  ggsave(out_file_name, path="../plots", width=Resolucao, height=Resolucao, units="px")
+}
+
+
+fancy_scientific <- function(l) {
+  l <- format(l, scientific = TRUE)
+  l <- gsub("^(.*)e", "'\\1'e", l)
+  l <- gsub("e", "%*%10^", l)
+  parse(text=l)
 }
 
 #Cria o gráfico de x^2-x (Função de complexidade do algorítmo implementado)
-ggplot(data.frame(x=c(1,max(dados$V1))), aes(x=x)) + 
-  stat_function(fun=equacao,linewidth=1)
-ggsave("funcao.png", path="./plots", width=Resolucao, height=Resolucao, units="px")
+ggplot(data.frame(x=c(1,max(dados$V1)+100)), aes(x=x)) + theme(text=element_text(size=40, family=fonte)) +
+  stat_function(fun=equacao,linewidth=1) + ylab("f(x)") + scale_y_continuous(labels=fancy_scientific)
+ggsave("funcao.png", path="../plots", width=Resolucao, height=Resolucao, units="px")
